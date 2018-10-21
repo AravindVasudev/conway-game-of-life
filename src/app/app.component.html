@@ -4,7 +4,7 @@
     <div class="row" *ngFor="let row of board; let i = index">
       <div class="col" *ngFor="let cell of row; let j = index"
       [ngClass]="{'active': cell === State.Active, 'empty': cell === State.Empty}"
-      (click)="setCell(i, j)"></div>
+      (click)="toggleCell(i, j)"></div>
     </div>
   </main>
   <footer>
