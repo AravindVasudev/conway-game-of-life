@@ -1,5 +1,15 @@
 <div class="container">
-  <header></header>
-  <main></main>
-  <footer></footer>
+  <header>Conway's Game of Life</header>
+  <main>
+    <div class="row" *ngFor="let row of board; let i = index">
+      <div class="col" *ngFor="let cell of row; let j = index"
+      [ngClass]="{'active': cell === State.Active, 'empty': cell === State.Empty}"
+      (click)="setCell(i, j)"></div>
+    </div>
+  </main>
+  <footer>
+    <button (click)="updateDimension(dimension + 1)" id="increment" class="btn">+</button>
+    <button (click)="updateDimension(dimension - 1)" id="decrement" class="btn">-</button>
+    <button (click)="toggleRunning()" id="start" class="btn">{{ isRunning ? "Stop" : "Start" }}</button>
+  </footer>
 </div>
